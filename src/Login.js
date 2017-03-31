@@ -4,7 +4,10 @@ import {  Form, Checkbox, Col, FormGroup, ControlLabel,FormControl, Button, Butt
 class Login extends Component {
 	constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+    	email: '',
+    	password: '',
+    };
 		this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,13 +20,13 @@ class Login extends Component {
 	render(){
     return (
       <div>
-        <Form horizontal onSubmit={this.handleSubmit}>
+        <Form horizontal onSubmit={this.handleLogin}>
 					<FormGroup controlId="formHorizontalEmail">
 			      <Col componentClass={ControlLabel} sm={2}>
 			        Email
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl type="email" placeholder="Email" />
+			        <FormControl type="email"  id="email" name="email" onChange={this.handleChange} placeholder="Email" />
 			      </Col>
 			    </FormGroup>
 
@@ -32,7 +35,7 @@ class Login extends Component {
 			        Password
 			      </Col>
 			      <Col sm={10}>
-			        <FormControl type="password" placeholder="Password" />
+			        <FormControl type="password"  id="password" name="password" onChange={this.handleChange} placeholder="Password" />
 			      </Col>
 			    </FormGroup>
 
